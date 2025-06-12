@@ -1,0 +1,20 @@
+services:
+  api-data:
+    build:
+      context: ./data
+    container_name: api-data
+    ports:
+      - "8081:8081"
+
+  api-auth:
+    build:
+      context: ./auth
+    container_name: api-auth
+    depends_on:
+      - api-data
+    ports:
+      - "8080:8080"
+    environment:
+      - API_URL=http://api-data:8081/get-data
+    env_file:
+      - .env

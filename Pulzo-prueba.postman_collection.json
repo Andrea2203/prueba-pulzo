@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "770da2c4-b1de-48e4-8ae0-91012f983acd",
+		"name": "Pulzo-prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21355779",
+		"_collection_link": "https://k-onescript.postman.co/workspace/Konecta~794b2b28-ade1-4e3a-ad05-a84c0b2be27a/collection/21355779-770da2c4-b1de-48e4-8ae0-91012f983acd?action=share&source=collection_link&creator=21355779"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"console.log(jsonData)\r",
+							"pm.environment.set(\"token\", jsonData.value); "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "use-api",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get-data",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
